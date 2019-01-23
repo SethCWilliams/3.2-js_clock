@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+
+<h1>It's a clock!</h1>
+{#<h2>Oh, but it's much more than that.</h2>#}
+{#<h5>No it's not. It's just a clock.</h5>#}
+{% block content %} {% endblock %}
+
+<script type="text/javascript" src="{% static 'main.js' %}"></script>
+</body>
+</html>
