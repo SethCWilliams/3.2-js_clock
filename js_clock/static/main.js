@@ -2,7 +2,6 @@ console.log('hey, it works');
 
 // $clock = document.querySelector('#clock');
 
-
 function updateClock() {
     var currentTime = new Date(); //new data object
 
@@ -13,6 +12,16 @@ function updateClock() {
     if (currentHours <= 9) currentHours = '0' + currentHours; //adding a zero if they're single digits
     if (currentMinutes <= 9) currentMinutes = '0' + currentMinutes;
     if (currentSeconds <= 9) currentSeconds = '0' + currentSeconds;
+
+    // if (isHovering){
+    //         let formattedHex = hexHours + ':' + hexMinutes + ':' + hexSeconds;
+    //         document.getElementById("time").textContent = formattedHex;
+    //     }
+    //     else {
+    //         let formattedDate = hours + ':' + minutes + ':' + seconds;
+    //         document.getElementById("time").textContent = formattedDate;
+    //     }
+
 
     background_color = '#' + currentHours + currentMinutes + currentSeconds; //setting background color
     clock = currentHours + ":" + currentMinutes + ":" + currentSeconds;
