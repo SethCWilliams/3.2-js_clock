@@ -41,7 +41,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'localhost',
-    'silly-clock.herokuapp.com/',
+    'silly-clock.herokuapp.com/'
 ]
 
 
