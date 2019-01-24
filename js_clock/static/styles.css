@@ -1,6 +1,23 @@
 #clock {
-    color: magenta;
+    color: white;
+    mix-blend-mode: difference;
     text-align: center;
     width: 99%;
     margin: auto;
+
+}
+
+.center {
+    text-align: center;
+}
+
+.percent-bar{
+    width: 100%;
+    background-color: gray;
+}
+
+.bar {
+    width: 1%;
+    height: 30px;
+    background-color: red;
 }

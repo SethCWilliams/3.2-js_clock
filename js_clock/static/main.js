@@ -17,13 +17,23 @@ function updateClock() {
     background_color = '#' + currentHours + currentMinutes + currentSeconds; //setting background color
     clock = currentHours + ":" + currentMinutes + ":" + currentSeconds;
     document.body.style.background= background_color;
-
     document.getElementById('clock').innerHTML=clock;
+
+
+    var clock_percent = (currentSeconds / 60) * 100;
+
 
     setTimeout(updateClock, 1000); //timeout is saying wait x time and then run it again.
                                             //It works in milliseconds, so it's saying, wait 1000 milliseconds/1second,
                                                 //and run this again.
+    // hexString = currentTime.toString(16);
+    // if (hexString.length % 2) {
+    //     hexString = '0' + hexString;
+    // }
+    // document.getElementById("clock").addEventListener("hover", hexString);
+    console.log(clock_percent)
 }
+
 
 
 updateClock();
