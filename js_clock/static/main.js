@@ -1,48 +1,48 @@
-console.log('hey, it works');
+$(document).ready(function () {
+    function numberWithLeadingZeros(num) {
+        return (num < 10 ? '0' : '') + num
+    }
 
-// $clock = document.querySelector('#clock');
+    function numToHex(num) {
+        var hexString = parseInt(num).toString(16).toUpperCase();
+        if (hexString.length % 2) {
+            hexString = '0' + hexString;
+        }
+        return hexString;
+    }
 
-function updateClock() {
-    var currentTime = new Date(); //new data object
+    function logTime() {
 
-    var currentHours = currentTime.getHours(); //breaking down hours, minutes, seconds
-    var currentMinutes = currentTime.getMinutes();
-    var currentSeconds = currentTime.getSeconds();
+        let currentTime = new Date();
+        let hours = numberWithLeadingZeros(currentTime.getHours());
+        let minutes = numberWithLeadingZeros(currentTime.getMinutes());
+        let seconds = numberWithLeadingZeros(currentTime.getSeconds());
 
-    if (currentHours <= 9) currentHours = '0' + currentHours; //adding a zero if they're single digits
-    if (currentMinutes <= 9) currentMinutes = '0' + currentMinutes;
-    if (currentSeconds <= 9) currentSeconds = '0' + currentSeconds;
+        var hexHours = numToHex(hours);
+        var hexMinutes = numToHex(minutes);
+        var hexSeconds = numToHex(seconds);
 
-    // if (isHovering){
-    //         let formattedHex = hexHours + ':' + hexMinutes + ':' + hexSeconds;
-    //         document.getElementById("time").textContent = formattedHex;
-    //     }
-    //     else {
-    //         let formattedDate = hours + ':' + minutes + ':' + seconds;
-    //         document.getElementById("time").textContent = formattedDate;
-    //     }
+        if (isHovering){
+            let formattedHex = hexHours + ':' + hexMinutes + ':' + hexSeconds;
+            document.getElementById("time").textContent = formattedHex;
+        }
+        else {
+            let formattedDate = hours + ':' + minutes + ':' + seconds;
+            document.getElementById("time").textContent = formattedDate;
+        }
 
+        let color = '#' + hexHours + hexMinutes + hexSeconds;
+        document.body.style.backgroundColor = color;
 
-    background_color = '#' + currentHours + currentMinutes + currentSeconds; //setting background color
-    clock = currentHours + ":" + currentMinutes + ":" + currentSeconds;
-    document.body.style.background= background_color;
-    document.getElementById('clock').innerHTML=clock;
+        $('#progress').width(((seconds / 60) * 100) + '%');
+    }
 
+    setInterval(logTime, 1000);
 
-    var clock_percent = (currentSeconds / 60) * 100;
-
-
-    setTimeout(updateClock, 1000); //timeout is saying wait x time and then run it again.
-                                            //It works in milliseconds, so it's saying, wait 1000 milliseconds/1second,
-                                                //and run this again.
-    // hexString = currentTime.toString(16);
-    // if (hexString.length % 2) {
-    //     hexString = '0' + hexString;
-    // }
-    // document.getElementById("clock").addEventListener("hover", hexString);
-    console.log(clock_percent)
-}
-
-
-
-updateClock();
+    var isHovering = false;
+    $('#time').hover(function(){
+        isHovering = true
+    }, function(){
+        isHovering = false
+    })
+});
